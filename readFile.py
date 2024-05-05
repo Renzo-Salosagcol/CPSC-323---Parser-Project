@@ -23,10 +23,9 @@ class ReadFile:
             readFile = csv.DictReader(csvReadFile)
             self.headers = [header.strip() for header in readFile.fieldnames]
 
+            i = 1
             for line in readFile:
-                resultKey = line['ï»¿Result'].strip()
+                resultValue = line['ï»¿Result'].strip()
                 equation = line['Equation']
-                if resultKey in self.information:
-                    self.information[resultKey].append(equation)
-                else:
-                    self.information[resultKey] = [equation]
+                self.information[i] = [resultValue, equation]
+                i += 1

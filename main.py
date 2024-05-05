@@ -11,6 +11,9 @@ def main():
     cfg = ReadFile('CFG.csv')
     cfg.readCFG()
 
+    # print(parsingTable.information)
+    # print(cfg.information)
+
     # Create an LR parser instance
     parser = LRParser(parsingTable.information, cfg.information)
 
@@ -23,7 +26,6 @@ def main():
             'accepted': accepted,
             'actions': actions
         }
-
     print(results)
 
 if __name__ == '__main__':
