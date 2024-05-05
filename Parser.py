@@ -30,7 +30,6 @@ class LRParser:
                     newState = '10'
                 elif '11' in newStackOrderInput:
                     newState = '11'
-                print(newState)
                 self.stack.append(int(newState))
                 input = input[1:]
             elif action == "Reduce":
@@ -39,7 +38,6 @@ class LRParser:
 
                 cfgResult = self.cfg.get(reduceIndex)[0]
                 cfgEquation = self.organize_string(self.cfg.get(reduceIndex)[1])
-                print(cfgEquation)
 
                 # Check for reduction equation match
                 charCheck = 0
@@ -70,7 +68,6 @@ class LRParser:
             elif action == "Accept":
                 self.actionOrder.append("Parser Completed: Input Accepted!")
                 self.print_information()
-                print(self.inputOrder)
                 return True, self.actionOrder
             else:
                 self.actionOrder.append('Error: Unrecognized Action')
