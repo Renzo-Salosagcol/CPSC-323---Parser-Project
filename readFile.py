@@ -26,6 +26,6 @@ class ReadFile:
             i = 1
             for line in readFile:
                 resultValue = line['ï»¿Result'].strip()
-                equation = line['Equation']
+                equation = line['Equation'].strip()
                 self.information[i] = [resultValue, equation]
                 i += 1
