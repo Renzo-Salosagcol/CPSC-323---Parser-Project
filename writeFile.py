@@ -32,7 +32,7 @@ def create_results_file(input_str, parser, mode):
                 actionStep = "None"
 
             # Step and Stack print on file
-            output_file.write(f'{i}{" " * (padding - len(str(i)))}{stackStep}{" " * (padding - len(stackStep))}')
+            output_file.write(f'{i + 1}{" " * (padding - len(str(i + 1)))}{stackStep}{" " * (padding - len(stackStep))}')
 
             # Print Input on file
             output_file.write(f'{inputStep}{" " * (padding - len(inputStep))}')
