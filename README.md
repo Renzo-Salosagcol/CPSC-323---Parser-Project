@@ -58,13 +58,12 @@ The output is formatted as follows for each input string:
 
 Example output:
 
-vbnet
-
 Input: (id+id)*id$
 Stack:
 Step  Stack  Input  Action
 ...   ...    ...    ...
 Output: String is accepted
+
 
 Contributing
 
