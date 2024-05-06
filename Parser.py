@@ -97,7 +97,7 @@ class LRParser:
             return "Shift"
         elif action[0] == 'R' or action[0] == 'r':
             return "Reduce"
-        elif action == "accept":
+        elif action == "accept" or action == "Accept":
             return "Accept"
         else:
             return "Unaccepted"

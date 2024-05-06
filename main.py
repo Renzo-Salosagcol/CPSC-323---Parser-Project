@@ -31,10 +31,9 @@ def main():
 
         if firstIteration:
             create_results_file(input_str, parser, 'w')
+            firstIteration = False
         else:
             create_results_file(input_str, parser, 'a')
-
-        firstIteration = False
 
 if __name__ == '__main__':
     main()

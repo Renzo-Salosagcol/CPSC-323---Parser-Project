@@ -16,10 +16,10 @@ def writeFile(file):
 
 def create_results_file(input_str, parser, mode):
     with open(f"result.txt", f'{mode}') as output_file:
-        numLines = 50
+        numLines = 60
         padding = 15
 
-        output_file.write(f'Input: {input_str}\nStack: \n{"-" * numLines}\n')
+        output_file.write(f'Input: {input_str}\nStack: \n{"=" * numLines}\n')
         output_file.write(f'Step{" " * (padding - 4)}Stack{" " * (padding - 5)}')
         output_file.write(f'Input{" " * (padding - 5)}Action{" " * (padding - 6)}\n')
 
@@ -40,7 +40,7 @@ def create_results_file(input_str, parser, mode):
             # Print Action on file
             output_file.write(f'{actionStep}{" " * (padding - len(actionStep))}\n')
 
-        output_file.write(f'{"-" * numLines}\n')
+        output_file.write(f'{"=" * numLines}\n')
 
         if parser.actionOrder[-2] == "accept" or parser.actionOrder[-2] == "Accept":
             output_file.write(f'Parsing Successful!\n{parser.actionOrder[-1]}\n\n')
