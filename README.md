@@ -1,6 +1,6 @@
 Compiler Simulation for Syntax Analysis
 
-This project is developed as part of the coursework for CPSC 323 (Compilers & Languages) at California State University, Fullerton. It includes a compiler simulation that traces input strings over the set {id, +, *, ), (} and ending with $. The program uses a provided CFG and parsing table to simulate a stack-based parsing process, outputting the stack operations and determining whether the strings are accepted based on the defined grammar.
+This project is developed as part of the coursework for CPSC 323. It includes a compiler simulation that traces input strings over the set {id, +, *, ), (} and ending with $. The program uses a provided CFG and parsing table to simulate a stack-based parsing process, outputting the stack operations and determining whether the strings are accepted based on the defined grammar.
 Table of Contents
 
     Getting Started
@@ -31,7 +31,7 @@ Navigate to the project directory:
 
 bash
 
-cd <project-directory>
+cd CPSC-323---Parser-Project
 
 Run the main script:
 
