@@ -45,4 +45,4 @@ def create_results_file(input_str, parser, mode):
         if parser.actionOrder[-2] == "accept" or parser.actionOrder[-2] == "Accept":
             output_file.write(f'Parsing Successful!\n{parser.actionOrder[-1]}\n\n')
         else:
-            output_file.write(f'Parsing Incomplete\nReason: {parser.actionOrder[-1]} \n \n')
+            output_file.write(f'Parsing Incomplete\n{parser.actionOrder[-1]} \n \n')
