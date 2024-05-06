@@ -1,0 +1,58 @@
+Input: (id+id)*id$
+Stack: 
+--------------------------------------------------
+Step           Stack          Input          Action         
+0              $0             (id+id)*id$    S4             
+1              $0(4           id+id)*id$     S5             
+2              $0(4id5        +id)*id$       R6             
+3              $0(4F3         +id)*id$       R4             
+4              $0(4T2         +id)*id$       R2             
+5              $0(4E8         +id)*id$       S6             
+6              $0(4E8+6       id)*id$        S5             
+7              $0(4E8+6id5    )*id$          R6             
+8              $0(4E8+6F3     )*id$          R4             
+9              $0(4E8+6T9     )*id$          R1             
+10             $0(4E8         )*id$          S11            
+11             $0(4E8)11      *id$           R5             
+12             $0F3           *id$           R4             
+13             $0T2           *id$           S7             
+14             $0T2*7         id$            S5             
+15             $0T2*7id5      $              R6             
+16             $0T2*7F10      $              R3             
+17             $0T2           $              R2             
+18             $0E1           $              accept         
+--------------------------------------------------
+Parsing Successful!
+Parser Completed: Input Accepted!
+
+Input: id*id$
+Stack: 
+--------------------------------------------------
+Step           Stack          Input          Action         
+0              $0             id*id$         S5             
+1              $0id5          *id$           R6             
+2              $0F3           *id$           R4             
+3              $0T2           *id$           S7             
+4              $0T2*7         id$            S5             
+5              $0T2*7id5      $              R6             
+6              $0T2*7F10      $              R3             
+7              $0T2           $              R2             
+8              $0E1           $              accept         
+--------------------------------------------------
+Parsing Successful!
+Parser Completed: Input Accepted!
+
+Input: (id*)$
+Stack: 
+--------------------------------------------------
+Step           Stack          Input          Action         
+0              $0             (id*)$         S4             
+1              $0(4           id*)$          S5             
+2              $0(4id5        *)$            R6             
+3              $0(4F3         *)$            R4             
+4              $0(4T2         *)$            S7             
+5              $0(4T2*7       )$             None           
+--------------------------------------------------
+Parsing Incomplete
+Reason: Error: Unrecognized Action 
+ 

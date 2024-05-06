@@ -1,4 +1,5 @@
 from readFile import ReadFile
+from writeFile import create_results_file
 from Parser import LRParser
 def main():
     inputs = ["(id+id)*id$", "id*id$", "(id*)$"]
@@ -19,6 +20,7 @@ def main():
 
     # Parse the given input strings
     results = {}
+    firstIteration = True
     for input_str in inputs:
         parser.reset()
         accepted, actions = parser.parse(input_str)
@@ -26,7 +28,13 @@ def main():
             'accepted': accepted,
             'actions': actions
         }
-    print(results)
+
+        if firstIteration:
+            create_results_file(input_str, parser, 'w')
+        else:
+            create_results_file(input_str, parser, 'a')
+
+        firstIteration = False
 
 if __name__ == '__main__':
     main()
