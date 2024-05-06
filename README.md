@@ -68,7 +68,12 @@ Output: String is accepted
 
 Contributing
 
-Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
+Feel free to fork this repository and submit pull requests. You can also open issues if you find bugs or have feature suggestions.
+
 License
 
 Distributed under the MIT License. See LICENSE for more information.
+
+Authors
+
+Martin Nguyen, Renzo Salosagcol, and Alberto Molina
