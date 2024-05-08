@@ -12,9 +12,6 @@ def main():
     cfg = ReadFile('CFG.csv')
     cfg.readCFG()
 
-    # print(parsingTable.information)
-    # print(cfg.information)
-
     # Create an LR parser instance
     parser = LRParser(parsingTable.information, cfg.information)
 

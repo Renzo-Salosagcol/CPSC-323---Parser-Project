@@ -14,13 +14,13 @@ Step           Stack          Input          Action
 10             $0(4E8+6T9     )*id$          R1             
 11             $0(4E8         )*id$          S11            
 12             $0(4E8)11      *id$           R5             
-13             $0F3           *id$           R4             
-14             $0T2           *id$           S7             
-15             $0T2*7         id$            S5             
-16             $0T2*7id5      $              R6             
-17             $0T2*7F10      $              R3             
-18             $0T2           $              R2             
-19             $0E1           $              accept         
+13             $0(F3          *id$           R4             
+14             $0(T2          *id$           S7             
+15             $0(T2*7        id$            S5             
+16             $0(T2*7id5     $              R6             
+17             $0(T2*7F10     $              R3             
+18             $0(TT2         $              R2             
+19             $0(TE1         $              accept         
 ============================================================
 Parsing Successful!
 Parser Completed: Input Accepted!
@@ -36,8 +36,8 @@ Step           Stack          Input          Action
 5              $0T2*7         id$            S5             
 6              $0T2*7id5      $              R6             
 7              $0T2*7F10      $              R3             
-8              $0T2           $              R2             
-9              $0E1           $              accept         
+8              $0TT2          $              R2             
+9              $0TE1          $              accept         
 ============================================================
 Parsing Successful!
 Parser Completed: Input Accepted!

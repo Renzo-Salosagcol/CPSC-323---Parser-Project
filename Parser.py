@@ -26,10 +26,6 @@ class LRParser:
                 newState = str((self.actionOrder[-1][1:]))
                 newStackOrderInput = str(input[0]) + newState
                 self.stackOrder.append(self.stackOrder[-1]+newStackOrderInput)
-                if '10' in newStackOrderInput:
-                    newState = '10'
-                elif '11' in newStackOrderInput:
-                    newState = '11'
                 self.stack.append(int(newState))
                 input = input[1:]
             elif action == "Reduce":
@@ -51,20 +47,36 @@ class LRParser:
 
                 for i in range(len(cfgEquation)):
                     self.stack.pop()
-                    if 'id' == cfgEquation[0] or '10' in changedStackInput or '11' in changedStackInput:
-                        changedStackInput = changedStackInput[:-3]
-                    else:
-                        changedStackInput = changedStackInput[:-2]
+                    try:
+                        if 'id' == cfgEquation[0] or int(changedStackInput[:-2]):
+                            changedStackInput = changedStackInput[:-3]
+
+                        else:
+                            changedStackInput = changedStackInput[:-2]
+                    except:
+                        if 'id' == cfgEquation[0]:
+                            changedStackInput = changedStackInput[:-3]
+
+                        else:
+                            changedStackInput = changedStackInput[:-2]
 
                 changedStackInput += cfgResult + self.parsing_table.get((self.stack[-1], cfgResult))
                 self.stackOrder.append(changedStackInput)
 
-                if changedStackInput[-2] == '1' and changedStackInput [-1] == '0':
-                    self.stack.append(10)
-                elif changedStackInput[-2] == '1' and changedStackInput [-1] == '1':
-                    self.stack.append(11)
-                else:
+                # if changedStackInput[-2] == '1' and changedStackInput [-1] == '0':
+                #     self.stack.append(10)
+                # elif changedStackInput[-2] == '1' and changedStackInput [-1] == '1':
+                #     self.stack.append(11)
+                # else:
+                #     self.stack.append(int(changedStackInput[-1]))
+                try:
+                    if int(changedStackInput[-2:]):
+                        self.stack.append(int(changedStackInput[-2:]))
+                    else:
+                        self.stack.append(int(changedStackInput[-1]))
+                except:
                     self.stack.append(int(changedStackInput[-1]))
+
             elif action == "Accept":
                 self.actionOrder.append("Parser Completed: Input Accepted!")
                 self.print_information()
