@@ -26,6 +26,7 @@ class LRParser:
                 newState = str((self.actionOrder[-1][1:]))
                 newStackOrderInput = str(input[0]) + newState
                 self.stackOrder.append(self.stackOrder[-1]+newStackOrderInput)
+
                 self.stack.append(int(newState))
                 input = input[1:]
             elif action == "Reduce":
@@ -47,35 +48,15 @@ class LRParser:
 
                 for i in range(len(cfgEquation)):
                     self.stack.pop()
-                    try:
-                        if 'id' == cfgEquation[0] or int(changedStackInput[:-2]):
-                            changedStackInput = changedStackInput[:-3]
-
-                        else:
-                            changedStackInput = changedStackInput[:-2]
-                    except:
-                        if 'id' == cfgEquation[0]:
-                            changedStackInput = changedStackInput[:-3]
-
-                        else:
-                            changedStackInput = changedStackInput[:-2]
+                    if 'id' == cfgEquation[0] or checkDoubleDigit(changedStackInput):
+                        changedStackInput = changedStackInput[:-3]
+                    else:
+                        changedStackInput = changedStackInput[:-2]
 
                 changedStackInput += cfgResult + self.parsing_table.get((self.stack[-1], cfgResult))
                 self.stackOrder.append(changedStackInput)
 
-                # if changedStackInput[-2] == '1' and changedStackInput [-1] == '0':
-                #     self.stack.append(10)
-                # elif changedStackInput[-2] == '1' and changedStackInput [-1] == '1':
-                #     self.stack.append(11)
-                # else:
-                #     self.stack.append(int(changedStackInput[-1]))
-                try:
-                    if int(changedStackInput[-2:]):
-                        self.stack.append(int(changedStackInput[-2:]))
-                    else:
-                        self.stack.append(int(changedStackInput[-1]))
-                except:
-                    self.stack.append(int(changedStackInput[-1]))
+                self.checkLastTwo(changedStackInput)
 
             elif action == "Accept":
                 self.actionOrder.append("Parser Completed: Input Accepted!")
@@ -119,3 +100,17 @@ class LRParser:
         print("Stack Order: ", self.stackOrder)
         print("Action Order: ", self.actionOrder)
         print("Input Order: ", self.inputOrder)
+
+    def checkLastTwo(self, string):
+        try:
+            if int(string[-2:]):
+                self.stack.append(int(string[-2:]))
+        except:
+            self.stack.append(int(string[-1:]))
+def checkDoubleDigit(string):
+    for i in range(10,100):
+        if str(i) in string:
+            return i
+
+    return False
+
